@@ -4,6 +4,9 @@ Allows you to hook a VMT of a native application from .NET Framework and .NET Co
 
 Performance appears to be good; but I didn't run any benchmarks yet and of course hooking natively will be much faster.
 
+Note: this uses shadow VMT and does not modify the original VMT function addresses. Instead, it replaces the object's VMT pointer.
+If you plan to use this in any game for "cheating": Don't. Most anti-cheats will detect this anyway.
+
 ONLY WORKS IF LOADED AS MODULE INTO TARGET PROCESS.
 
 # Example
