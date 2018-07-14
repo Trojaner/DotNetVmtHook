@@ -4,16 +4,16 @@ namespace DotNetVmtHook
 {
     public abstract class VmtFunctionHook<TDelegate> 
     {
-        private readonly int _methodIndex;
+        private readonly int _functionIndex;
         private readonly VmtTable _vmt;
         protected TDelegate OriginalFunction { get; private set; }
         private TDelegate _callback;
 
-        protected VmtFunctionHook(VmtTable vmt, int methodIndex)
+        protected VmtFunctionHook(VmtTable vmt, int functionIndex)
         {
             vmt.EnsureInitialized();
 
-            _methodIndex = methodIndex;
+            _functionIndex = functionIndex;
             _vmt = vmt;
         }
 
@@ -21,14 +21,14 @@ namespace DotNetVmtHook
 
         public void Dispose()
         {
-            _vmt.RestoreFunction(_methodIndex);
+            _vmt.RestoreFunction(_functionIndex);
         }
 
         public void Hook()
         {
             _callback = GetCallback();
             GC.KeepAlive(_callback);
-            OriginalFunction = _vmt.ReplaceFunction(_methodIndex, _callback);
+            OriginalFunction = _vmt.ReplaceFunction(_functionIndex, _callback);
             GC.KeepAlive(OriginalFunction);
         }
     }
