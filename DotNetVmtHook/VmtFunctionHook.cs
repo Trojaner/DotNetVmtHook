@@ -2,14 +2,14 @@
 
 namespace DotNetVmtHook
 {
-    public abstract class VmtFunctionHook<TVmt, TDelegate>  where TVmt : VmtTable
+    public abstract class VmtFunctionHook<TDelegate> 
     {
         private readonly int _methodIndex;
-        private readonly TVmt _vmt;
+        private readonly VmtTable _vmt;
         protected TDelegate OriginalFunction { get; private set; }
         private TDelegate _callback;
 
-        protected VmtFunctionHook(TVmt vmt, int methodIndex)
+        protected VmtFunctionHook(VmtTable vmt, int methodIndex)
         {
             vmt.EnsureInitialized();
 
