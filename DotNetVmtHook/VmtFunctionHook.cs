@@ -24,7 +24,7 @@ namespace DotNetVmtHook
             _vmt.RestoreFunction(_methodIndex);
         }
 
-        public void HookMethods()
+        public void Hook()
         {
             _callback = GetCallback();
             GC.KeepAlive(_callback);
