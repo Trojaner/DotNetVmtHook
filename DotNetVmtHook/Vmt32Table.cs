@@ -9,9 +9,12 @@ namespace DotNetVmtHook
         {
         }
 
-        public override void Init()
+        public override void EnsureInitialized()
         {
-            base.Init();
+            base.EnsureInitialized();
+
+            if (OriginalVmtAddress != IntPtr.Zero)
+                return;
 
             OriginalVmtAddress = (IntPtr)((int**)InstanceAddress)[0];
 

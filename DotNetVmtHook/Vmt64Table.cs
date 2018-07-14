@@ -11,9 +11,9 @@ namespace DotNetVmtHook
                 throw new Exception("Can not use Vmt64Table in non-64 bit environment.");
         }
 
-        public override void Init()
+        public override void EnsureInitialized()
         {
-            base.Init();
+            base.EnsureInitialized();
 
             OriginalVmtAddress = (IntPtr)((long**)InstanceAddress)[0];
 
