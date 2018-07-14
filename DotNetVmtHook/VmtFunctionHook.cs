@@ -2,7 +2,7 @@
 
 namespace DotNetVmtHook
 {
-    public abstract class VmtFunctionHook<TVmt, TDelegate>  where TVmt : Vmt32Table
+    public abstract class VmtFunctionHook<TVmt, TDelegate>  where TVmt : VmtTable
     {
         private readonly int _methodIndex;
         private readonly TVmt _vmt;
