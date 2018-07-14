@@ -6,7 +6,7 @@ Performance appears to be good; but I didn't run any benchmarks yet and of cours
 
 ONLY WORKS IF LOADED AS MODULE INTO TARGET PROCESS.
 
-Example usage:
+# Example
 ```cs
     [SuppressUnmanagedCodeSecurity] //to make calls faster
     [UnmanagedFunctionPointer(CallingConvention.StdCall)] //depends on the native method
@@ -23,7 +23,7 @@ Example usage:
              //Otherwise GC might loose track of it and collect it; resulting in native crash
              //...
              //Do Something
-             return OriginalMethod(data, data2);
+             return OriginalFunction(data, data2);
         }
  
         protected override unsafe SomeMethodDelegate GetCallback()
@@ -41,3 +41,12 @@ Example usage:
     functionHook.Dispose();
     vmt.Dispose();
 ```
+
+# Compatibility
+Works with .NET 4.5 / .NET Standard 1.3 (Depends on Buffer.MemoryCopy)
+
+Should work on Linux; afaik you have to +1 the function indexes there (e.g. if your function index is 0x03 on Windows, its 0x04 on Linux).
+
+
+# License
+Everything is licensed MIT. Please provide credit if you use this.
