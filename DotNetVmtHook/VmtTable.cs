@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace DotNetVmtHook
 {
-    public abstract unsafe class VmtTable : IDisposable, IEnumerable<IntPtr>
+    public abstract class VmtTable : IDisposable, IEnumerable<IntPtr>
     {
         protected IntPtr InstanceAddress { get; set; }
         private bool _inited;
@@ -23,10 +23,10 @@ namespace DotNetVmtHook
 
         public int Length { get; protected set; }
 
-        protected int CountFuncs(long** vmt)
+        protected int CountFuncs(IntPtr vmt)
         {
             int i = 0;
-            do ++i; while ((long)vmt[i] > 0);
+            do ++i; while (ReadIndex(vmt, i) != IntPtr.Zero);
             return i;
         }
 

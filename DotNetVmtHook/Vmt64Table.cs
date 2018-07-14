@@ -17,12 +17,11 @@ namespace DotNetVmtHook
 
             OriginalVmtAddress = (IntPtr)((long**)InstanceAddress)[0];
 
-            var vmt = (int**)OriginalVmtAddress;
-            Length = CountFuncs((long**)vmt) * sizeof(long);
+            Length = CountFuncs(OriginalVmtAddress) * sizeof(long);
 
             int copySize = Length + sizeof(long);
             long** newVmt = (long**)Marshal.AllocHGlobal(copySize);
-            Buffer.MemoryCopy((long*)vmt, (long*)newVmt, copySize, copySize);
+            Buffer.MemoryCopy((void*)OriginalVmtAddress, newVmt, copySize, copySize);
 
             VmtAddress = (IntPtr)newVmt;
             SetVmt(VmtAddress);
