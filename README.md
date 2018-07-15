@@ -1,4 +1,4 @@
-# DotNetVmtHook
+# DotNetVmtHook [![DotNetVmtHook NuGet](https://img.shields.io/nuget/v/DotNetVmtHook.svg)](https://www.nuget.org/packages/DotNetVmtHook)
 Allows you to hook a VMT of a native application from .NET Framework and .NET Core.
 
 
