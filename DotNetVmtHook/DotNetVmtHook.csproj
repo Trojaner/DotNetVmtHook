@@ -1,8 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net461;netstandard1.3;netcoreapp2.1</TargetFrameworks>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <PackageId>DotNetVmtHook</PackageId>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageTags>VMT Native C C++ Hooking Hook Detour Detouring</PackageTags>
+    <PackageLicenseUrl>https://github.com/Trojaner25/DotNetVmtHook/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Trojaner25/DotNetVmtHook/</PackageProjectUrl>
+    <PackageAuthors>Enes Sadık Özbek &lt;esozbek.me&gt;</PackageAuthors>
+    <PackageOwners>Enes Sadık Özbek &lt;esozbek.me&gt;</PackageOwners>
+    <Version>1.0.0</Version>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Enes Sadık Özbek &lt;esozbek.me&gt;</Authors>
+    <Description>Hook VMTs of a native applications from .NET</Description>
+    <Copyright>Enes Sadık Özbek &lt;esozbek.me&gt;</Copyright>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
 </Project>
